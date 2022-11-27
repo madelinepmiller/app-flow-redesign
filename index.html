@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>App Redesign</title>
+</head>
+<style>
+    .container1{
+        display:grid;
+        background-image: url(images/quad.jpg);
+        grid-template-columns:repeat(12, 1fr);
+        grid-template-rows: 100px 500px;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    nav{
+        grid-column: 1/13;
+        list-style-type: none;
+        list-style: none;
+        text-transform: uppercase;
+    }
+    li{
+        list-style-type: none;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 24px;
+    }
+    .nav ul li{
+            list-style-type: none;
+            padding: 20px 20px;
+        }
+        .nav a{
+            font-size: 20px;
+            font-size:24px;
+            text-transform:uppercase;
+            color: #333;
+        }
+        a:link{
+            color: #333;
+            text-decoration: none;
+        }
+        a:visited{
+            color: #333;
+            text-decoration: none;
+        }
+        a:hover{
+            color: #b2b2b2;
+            text-decoration: underline;
+        }
+        a:active{
+            color:#333;
+            text-decoration: none;
+        }
+/*hamburger menu styles*/
+        #menu__toggle{
+            display: none;
+        }
+        #menu__toggle:checked + .menu__btn > span {
+            transform: rotate(45deg);
+        }
+        #menu__toggle:checked + .menu__btn > span::before {
+            top: 0;
+            transform: rotate(0deg);
+        }
+        #menu__toggle:checked + .menu__btn > span::after {
+            top: 0;
+            transform: rotate(90deg);
+        }
+        #menu__toggle:checked ~ .menu__box {
+            right: 0 !important;
+        }
+        .menu__btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 26px;
+            height: 26px;
+            cursor: pointer;
+            z-index: 1;
+        }
+        .menu__btn > span,
+        .menu__btn > span::before,
+        .menu__btn > span::after {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #333;
+            transition-duration: .25s;
+        }
+        .menu__btn > span::before {
+            content: '';
+            top: -8px;
+        }
+        .menu__btn > span::after {
+            content: '';
+            top: 8px;
+        }
+        .menu__box {
+            display: block;
+            position: fixed;
+            top: 30px;
+            right: -100%;
+            height: auto;
+            padding:18px;
+            background-color:rgba(244, 239, 225, 0.75);
+            box-shadow: -2px 2px 9px rgba(0, 0, 0, .6);
+        }
+        .menu__item {
+            display: block;
+            padding: 9px 44px 9px 0;
+            color: #F2EDD0;
+        }
+    .container2{
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+    }
+    .blog{
+        grid-column: 4/13;
+    }
+    .problem{
+        grid-column: 1/13;
+    }
+    .design{
+        grid-column: 1/13;
+    }
+    .user{
+        grid-column: 1/13;
+    }
+    .pain{
+        grid-column: 1/13;
+    }
+    .before{
+        grid-column: 1/13;
+    }
+    .wire{
+        grid-column: 1/13;
+    }
+    .flows{
+        grid-column: 1/13;
+    }
+    .redesign{
+        grid-column: 1/13;
+    }
+    .conclusion{
+        grid-column: 1/13;
+    }
+    footer{
+        grid-column: 1/13;
+    }
+    h1{
+        font-family: 'Belleza', sans-serif;
+        font-size: 80px;
+        color: #f4efe1;
+        text-align: center;
+        padding-top: 70px;
+    }
+    h2{
+        font-family: 'Source Sans Pro', sans-serif;
+        padding-left: 60px;
+        font-size: 32px;
+        color: #333;
+    }
+    h3{
+        font-family: 'Source Sans Pro', sans-serif;
+        padding-left: 70px;
+        color: #333;
+    }
+    h4{
+        font-family: 'Belleza', sans-serif;
+        font-size: 80px;
+        padding-left: 60px;
+        padding-top: 80px;
+        color: #333;
+    }
+    p{
+        font-family: 'Source Sans Pro', sans-serif;
+        padding-left: 80px;
+        padding-right: 100px;
+        color: #333;
+        font-size: 20px;
+    }
+    .lever{
+        grid-column: 1/6;
+    }
+    .lever img{
+        width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .column{
+        grid-column: 7/13;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .column img{
+        width: 90%;
+    }
+    .simple{
+        grid-column: 1/6;
+    }
+    .simple img{
+        width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .tots{
+        grid-column: 7/13;
+    }
+    .tots img{
+        width: 85%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .tiny{
+        grid-column: 1/6;
+    } 
+    .tiny img{ 
+        width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    } 
+    .hope{
+        grid-column: 7/13;
+    }
+    .hope img{
+        width: 85%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .second{
+        grid-column: 1/13;
+    }
+    .third{
+        grid-column: 1/13;
+    }
+    .pt1{
+        grid-column: 1/3;
+    }
+    .pt1 img{
+        width: 85%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .pt2{
+        grid-column: 4/6;
+    }
+    .pt2 img{
+        width: 85%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .pt3{
+        grid-column: 7/9;
+    }
+    .pt3 img{
+        width: 85%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .pt4{
+        grid-column: 10/13;
+    }
+    .pt4 img{
+        width: 57%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .towel{
+        grid-column: 1/13;
+    }
+    .towel img{
+        width: 60%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .kite{
+        grid-column: 1/13;
+    }
+    .lego{
+        grid-column: 1/13;
+    }
+    .lego img{
+        width: 85%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .mockup{
+        grid-column: 1/3;
+    }
+    .mockup img{
+        width: 85%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .two{
+        grid-column: 4/6;
+    }
+    .two img{
+        width: 85%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .three{
+        grid-column: 7/9;
+    }
+    .three img{
+        width: 85%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .four{
+        grid-column: 10/13;
+    }
+    .four img{
+        width: 57%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .ideation{
+        grid-column: 1/13;
+    }
+    .flow1{
+        grid-column: 1/6;
+    }
+    .flow1 img{
+        width: 80%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .flow2{
+        grid-column: 7/13;
+    }
+    .flow2 img{
+        width: 50%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    footer{
+        background-color: #fff;
+        text-align: left;
+    }
+    .cap{
+        grid-column: 1/3;
+    }
+    .cap img{
+        width: 80%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .blog h3{
+        padding-top: 30px;
+    }
+/*hamburger goes away at 900px*/
+@media only screen and (min-width:850px) {
+    .nav{
+        grid-column: 1/13;
+        list-style-type: none;
+        list-style: none;
+    }
+    .bg{
+        display: block;
+        grid-column: 1/13;
+
+    }
+    .menu__toggle{
+        display: inline;
+    }
+    .menu__btn{
+        display: none;
+    }
+    .menu__box{
+        display:flex;
+        flex-direction:row;
+        justify-content:space-around;
+        position: initial;
+        padding: 10px;
+        box-shadow: none;
+    }
+    .menu__item{
+        color:white;
+        display: block;
+        padding: 0 0;
+        color: #333;
+        text-decoration: none; 
+    }
+}
+</style>
+<body>
+    <div class="container1">
+        <nav>
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+            <span></span>
+            </label>
+            <ul class="menu__box">
+                <li><a href="#first">Intro</a></li>
+                <li><a href="#second">Design Question</a></li>
+                <li><a href="#third">User Research</a></li>
+                <li><a href="#fourth">Pain Points</a></li>
+                <li><a href="#fifth">Redesign</a></li>
+            </ul>
+        </nav>
+        <div class="bg">
+            <h1>App Redesign: JMU Parking</h1>
+        </div>
+    </div>
+    <div class="container2">
+        <div class="cap">
+            <img src="images/photo.png">
+        </div>
+        <div class="blog">
+            <h3>By: Madeline Miller</h3>
+            <h3>Published September 3rd, 2022</h3>
+        </div>
+        <div class="problem" id="first">
+            <h2>Introduction</h2>
+            <p>James Madison University students constantly have difficulty finding parking on campus and often have to leave as early as an hour before their class begins to ensure they find a spot before their class. The JMU Parking app was created to help solve this problem by allowing students to see the number of spots available in each parking garage before even leaving their house, giving them enough time to plan when to leave. This app also has additional features like the option the purchase a permit, regulations, and a link to the parking website.</p>
+            <p>I use the JMU Parking app daily and have been an avid user since August 2021 but found that the app contains more features than just parking within the last week. These features would improve the functionality of the app if properly placed within the interface and were more accessible to users. In addition, the app’s design is rapidly becoming out of date and unappealing, I want to redesign the JMU Parking app to help users be aware of all functions, saving users time and simplifying their experience.</p>
+        </div>
+        <div class="design" id="second">
+            <h2>Design Question</h2>
+            <p>How might we improve the experience of JMU students using the parking app to find a spot to park on campus?</p>
+        </div>
+        <div class="user" id="third">
+            <h2>User Research</h2>
+            <p>My user research included thirty-nine James Madison University students between the ages of 18 and 22 years old, with grades ranging from sophomore to senior. I didn’t find it important to include freshmen in my user research due to the fact that all freshmen must live on campus, therefore, they aren’t driving to class or using the parking app. Users completed a google form containing questions about their usage and likability of the JMU Parking app.</p>
+        </div>
+        <div class="lever">
+            <img src="images/form1.png">
+        </div>
+        <div class="column">
+            <img src="images/form2.png">
+        </div>
+        <div class="user 2">
+            <p>25.6% of users check the JMU parking app multiple times a day, 43.6% check the app at least once a day, and 10.3% use the app once every few days. The remaining users used the app somewhere between once a week and once a month, with only 4 users who had never used the app before. In addition, 94.9% of our surveyed users said they used the JMU Parking app mainly for finding available spots on campus.</p>
+        </div>
+        <div class="simple">
+            <img src="images/form3.png">
+        </div>
+        <div class="tots">
+            <img src="images/form4.png">
+        </div>
+        <div class="second">
+            <p>From this survey, we also learned that 97.4% rated a three or higher when asked to rate their experience with the JMU Parking App. Although the users enjoyed the functionality of the app, we had a much higher range of responses when it came to ranking the interface of the app, with a higher quantity of responses on the lower end of the scale.</p>
+        </div>
+        <div class="tiny">
+            <img src="images/form5.png">
+        </div>
+        <div class="hope">
+            <img src="images/form6.png">
+        </div>
+        <div class="third">
+            <p>While there is some variety in user feedback, the JMU Parking application is used daily by most JMU students, and a majority of users agree that the interface could be improved. Based on user feedback and personal usage, three pain points can be identified.</p>
+        </div>
+        <div class="pain" id="fourth">
+            <h2>Pain Points</h2>
+            <h3>Pain Point #1: Design of interface</h3>
+            <p>Users have stated that the current interface is not user-friendly and is very inefficient in terms of the way information is shown to the users. In addition, users wanted an option where they can view parking lot spaces as well as just parking garages.</p>
+            <h3>Pain Point #2: Features are hidden</h3>
+            <p>I asked users if they were aware of the feature giving them the ability to purchase a parking pass through the JMU Parking application and only 7.7% knew of this. When asked how many users would purchase their parking pass through the app after knowing this information, 76.9% of users said they would. This proves itself that if the features were properly laid out within the app, it would increase the number of users using the application for its intended purpose.</p>
+            <h3>Pain Point #3: Slow/Not always up to date</h3>
+            <p>The form received a lot of responses stating that the information that the app shows isn’t always correct, or the information takes a while to load the updated numbers. By adding a reload button, we could solve the user's problem and increase the speed and efficiency of the app.</p>
+        </div>
+        <div class="before">
+            <h2>Before Pictures of the Application</h2>
+        </div>
+        <div class="pt1">
+            <img src="images/ss1.PNG">
+        </div>
+        <div class="pt2">
+            <img src="images/ss2.PNG">
+        </div>
+        <div class="pt3">
+            <img src="images/ss3.PNG">
+        </div>
+        <div class="pt4">
+            <img src="images/ss4.PNG">
+        </div>
+        <div class="wire" id="fifth">
+            <h2>Wireframes</h2>
+            <p>To better understand the layout of the JMU Parking application I created a wireframe of the interface.</p>
+        </div>
+        <div class="towel">
+            <img src="images/wf1.png">
+        </div>
+        <div class="kite">
+            <p>Using the wireframe from the current application design and my knowledge of UX design, I created a new wireframe of what the new layout will look like to better fit the user's requirements. I added an additional settings section to make the app simpler for users.</p>
+        </div>
+        <div class="lego">
+            <img src="images/wf2.png">
+        </div>
+        <div class="flows">
+            <h2>User Flows</h2>
+            <p>I created two separate user flows to highlight how the new wireframe would simplify the app and benefit users. I decided to use the two most app usages to show the user flow, using the app to find a parking spot on campus and the process of purchasing a parking pass using the application.</p>
+        </div>
+        <div class="flow1">
+            <img src="images/uf1.png">
+        </div>
+        <div class="flow2">
+            <img src="images/uf2.png">
+        </div>
+        <div class="redesign">
+            <h2>Redesign Mockups</h2>
+            <p>Here I created some drafts of what the updated application could look like:</p>
+        </div>
+        <div class="mockup">
+            <img src="images/Home.png">
+        </div>
+        <div class="two">
+            <img src="images/p1.png">
+        </div>
+        <div class="three">
+            <img src="images/p2.png">
+        </div>
+        <div class="four">
+            <img src="images/Settings.png">
+        </div>
+        <div class="ideation">
+            <h2>Ideation Process</h2>
+            <p>The first thing that I thought that it was important to accomplish with the redesign of the application is ensuring that all of the functions of the app are shown to the user in a clear and efficient manner. I did this by placing all of the available services on the homepage with an icon so that as the user enters the app the first thing their eyes see is all of the things they can accomplish. This solves users' pain points by increasing the visual appeal of the app as well as the functionality by showing them all of the services offered in a high-traffic area of the app as opposed to being hidden within a hamburger menu.
+            </p>
+            <p>Next, I felt it was important to add a settings section within the application where users can sign in with their JMU email address so that when accomplishing tasks like purchasing a parking pass the user's account is already attached, eliminating the need to log in again when actually buying the pass. Within the settings, the user also has the ability to set a preference for students or faculty so they will only be shown the parking spots they can park in eliminating the extra step of having to click the same button every time they enter the application.</p>
+            <p>The third change I made to the application was not only a change to the look of the parking spot result page, but I also added a refresh button to give the users control of when the app gets updated with real-time parking information. I also decided to add a tab to each of the parking pages where you can switch between viewing the spots available in parking garages and parking lots. This solves the pain point of the application not having up to date information, as well as includes the users suggestions for the application by showing parking lot spaces. Finally, I made the name of the parking location a link that when clicked, would open maps to get the user to the desired lot in the shortest amount of time while still allowing users to know about how much time it will take them to get there. This will allow students to more accurately account for their time, eliminating the need to leave an hour early for class.</p>
+            <p>I felt like all of these changes make the application more enjoyable for users because they now have an app that is not only easier to navigate but is overall a better interface design and look for users.</p>
+        </div>
+        <div class="conclusion">
+            <h2>Conclusion</h2>
+            <p>By making these changes to the JMU Parking app, we will improve the experience of JMU students trying to find a parking spot on-campus.</p>
+        </div>
+        <footer>
+            <H3>Madeline Miller</H3>
+            <h3>App Flow Redesign Case Study: JMU Parking</h3>
+            <h3>Last Updated: September 4th, 2022</h3>
+        </footer>
+    </div>
+</body>
+</html>
